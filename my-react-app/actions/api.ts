@@ -1,24 +1,30 @@
-"use server";
-// import { setAuth } from "./cookie";
+import { setAuth } from "./cookie";
 
-// export const loginUser = async (userName: string, password: string) => {
-//   const res = await fetch(`${process.env.BACKEND_URL}/api/auth/login`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//       userName: userName,
-//       password: password,
-//     },
-//   });
-//   const data = await res.json();
-//   console.log("API Response:", data);
+export const loginUser = async (userName: string, password: string) => {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        userName: userName,
+        password: password,
+      },
+    });
 
-//   if (!res.ok) {
-//     throw new Error(data.message || "Login failed");
-//   }
+    const data = await res.json();
+    console.log("API Response:", data);
 
-//   return data;
-// };
+    if (!res.ok) {
+      throw new Error(data.message || "Login failed");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Login error:", error);
+    throw error;
+  }
+};
+
 
 // export async function signupUser(body: {
 //   email: string;
