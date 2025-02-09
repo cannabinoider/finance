@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { TextField, Button, Card, CardContent, Typography } from "@mui/material";
 
 interface FormData {
-  userName: string;
+  userId: string;
   password: string;
 }
 
 function SignIn() {
   const [formData, setFormData] = useState<FormData>({
-    userName: "",
+    userId: "",
     password: "",
   });
 
@@ -30,7 +30,7 @@ function SignIn() {
             Login
           </Typography>
           <form onSubmit={handleSubmit}>
-            <TextField label="First Name" name="userName" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
+            <TextField label="User Id" name="userId" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
             <TextField label="Password" name="password" type="password" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
             <Button type="submit" variant="contained" color="primary" fullWidth href="/home" sx={{ py: 1.5, mt: 2 }}>
               Sign In

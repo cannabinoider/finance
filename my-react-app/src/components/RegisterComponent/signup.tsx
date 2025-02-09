@@ -4,6 +4,7 @@ import { TextField, Button, Card, CardContent, Typography } from "@mui/material"
 // import finance from "../../assets/finance.svg";
 
 interface FormData {
+  userId : string;
   firstName: string;
   lastName: string;
   dob: string;
@@ -14,6 +15,7 @@ interface FormData {
 
 function Register() {
   const [formData, setFormData] = useState<FormData>({
+    userId: "",
     firstName: "",
     lastName: "",
     dob: "",
@@ -61,6 +63,7 @@ function Register() {
             Register
           </Typography>
           <form onSubmit={handleSubmit}>
+          <TextField label="User Id" name="userId" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
             <TextField label="First Name" name="firstName" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
             <TextField label="Last Name" name="lastName" variant="outlined" fullWidth margin="normal" onChange={handleChange} />
             <TextField label="Date of Birth" name="dob" type="date" InputLabelProps={{ shrink: true }} variant="outlined" fullWidth margin="normal" onChange={handleChange} />
